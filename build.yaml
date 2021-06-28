@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      fy_apt|testBuilder:
+        enabled: true
+        generate_for:
+        - lib/*
+#          include:
+#            - lib/testModel1.dart
+#          exclude:
+#            - lib/testModel2.dart
+
+builders:
+  testBuilder:
+    import: "package:fy_apt/fy_builder.dart"
+    builder_factories: ["testBuilder"]
+    build_extensions: {".dart": [".g.part"]}
+    auto_apply: root_package
+    build_to: source
